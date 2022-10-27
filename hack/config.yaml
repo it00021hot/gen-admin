@@ -1,0 +1,12 @@
+
+# CLI tool, only in development environment.
+# https://goframe.org/pages/viewpage.action?pageId=3673173
+gfcli:
+  gen:
+    dao:
+      - link:            "mysql:root:111111@tcp(10.168.1.11:3306)/gfast"
+        tables:          "sys_user_post"
+        removePrefix:    "gf_"
+        descriptionTag:  true
+        noModelComment:  true
+        path: "./internal/app/system"
