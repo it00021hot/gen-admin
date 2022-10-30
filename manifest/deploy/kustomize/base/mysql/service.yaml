@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: mysql
+  name: base-mysql-headless
+spec:
+  ports:
+    - name: tcp-mysql
+      port: 3306
+      protocol: TCP
+      targetPort: mysql
+  selector:
+    app.kubernetes.io/name: mysql
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: mysql
+  name: base-mysql-master
+spec:
+  ports:
+    - name: tcp-mysql
+      port: 3306
+      protocol: TCP
+      targetPort: mysql
+      nodePort: 30110
+  selector:
+    app.kubernetes.io/name: mysql
+  type: NodePort

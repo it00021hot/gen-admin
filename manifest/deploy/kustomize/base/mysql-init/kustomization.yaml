@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: base-system
+
+
+#生成configmap
+configMapGenerator:
+  - name: init-sql
+    files:
+      - gen-admin.sql
+
+#资源列表
+resources:
+- deployment.yaml
+#生成规则配置
+generatorOptions:
+  disableNameSuffixHash: true
+
+images:
+  - name: mysql-client
+    newName: registry.cn-shanghai.aliyuncs.com/c7n/mysql-client
+    newTag: 10.4.13
+  - name: mysql-check
+    newName: registry.cn-shanghai.aliyuncs.com/c7n/mysql-client
+    newTag: 10.4.13

@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: base-system
+
+
+#生成configmap
+configMapGenerator:
+  - name: redis-config
+    files:
+      - redis.conf
+
+#资源列表
+resources:
+- statefulSet.yaml
+- service.yaml
+#生成规则配置
+generatorOptions:
+  disableNameSuffixHash: true
+

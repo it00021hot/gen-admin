@@ -3,6 +3,7 @@ module github.com/it00021hot/gen-admin
 go 1.19
 
 require (
+	github.com/blastrain/vitess-sqlparser v0.0.0-20201030050434-a139afbb1aba
 	github.com/casbin/casbin/v2 v2.42.0
 	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.2.1
 	github.com/gogf/gf/v2 v2.2.1
@@ -32,6 +33,7 @@ require (
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/grokify/html-strip-tags-go v0.0.1 // indirect
+	github.com/juju/errors v0.0.0-20170703010042-c7d06af17c68 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mattn/go-colorable v0.1.9 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect

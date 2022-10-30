@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: base-system
+
+
+#生成configmap
+configMapGenerator:
+  - name: mysql-config
+    files:
+      - my.cnf
+# 生成 secret
+secretGenerator:
+  - name: mysql-secret
+    literals:
+      - MYSQL_ROOT_PASSWORD=111111
+      - MYSQL_HOST=base-mysql-headless
+      - MYSQL_PORT=3306
+      - MYSQL_USER=gfast
+      - MYSQL_PASSWORD=111111
+      - MYSQL_DATABASE=gfast
+
+
+#资源列表
+resources:
+- statefulSet.yaml
+- service.yaml
+#生成规则配置
+generatorOptions:
+  disableNameSuffixHash: true
+
+images:
+  - name: mysql
+    newName: mysql
+    newTag: latest

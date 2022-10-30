@@ -5,6 +5,7 @@ import (
 	commonRouter "github.com/it00021hot/gen-admin/internal/app/common/router"
 	demoRouter "github.com/it00021hot/gen-admin/internal/app/demo/router"
 	systemRouter "github.com/it00021hot/gen-admin/internal/app/system/router"
+	toolRouter "github.com/it00021hot/gen-admin/internal/app/tool/router"
 )
 
 func BindController(group *ghttp.RouterGroup) {
@@ -15,6 +16,8 @@ func BindController(group *ghttp.RouterGroup) {
 		demoRouter.BindController(group)
 		// 绑定公共路由
 		commonRouter.BindController(group)
+		// 绑定工具路由
+		toolRouter.BindController(group)
 	})
 
 }
