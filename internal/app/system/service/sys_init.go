@@ -19,17 +19,17 @@ import (
 )
 
 type ISysInit interface {
-	// 生成配置文件
+	// CreateConfigFile 生成配置文件
 	CreateConfigFile(ctx context.Context, req *system.DbInitCreateDbReq) (err error)
-	// 生成数据库
+	// CreateDataBase 生成数据库
 	CreateDataBase(ctx context.Context, dbName string) (err error)
-	// 加载配置文件
+	// LoadConfigFile 加载配置文件
 	LoadConfigFile() (err error)
 
-	// 是否已生成配置文件
+	// IsCreateConfigFile 是否已生成配置文件
 	IsCreateConfigFile() bool
 
-	//创建数据库
+	// CreateDataBaseByName 创建数据库
 	CreateDataBaseByName(ctx context.Context, req *system.DbInitCreateDbReq) (err error)
 }
 

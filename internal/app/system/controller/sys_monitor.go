@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"github.com/gogf/gf/v2/os/gtime"
 	"github.com/gogf/gf/v2/util/gconv"
+	"github.com/it00021hot/gen-admin/api/v1/system"
+	"github.com/it00021hot/gen-admin/library/libUtils"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/host"
 	"github.com/shirou/gopsutil/load"
 	"github.com/shirou/gopsutil/mem"
-	"github.com/it00021hot/gen-admin/api/v1/system"
-	"github.com/it00021hot/gen-admin/library/libUtils"
 	"os"
 	"runtime"
 	"strconv"
@@ -33,7 +33,7 @@ func (c *sysMonitorController) List(ctx context.Context, req *system.MonitorSear
 	var cpuAvg5 float64 = 0    //CPU负载5
 	var cpuAvg15 float64 = 0   //当前空闲率
 
-	cpuInfo, err := cpu.Percent(time.Duration(time.Second), false)
+	cpuInfo, err := cpu.Percent(time.Second, false)
 	if err == nil {
 		cpuUsed, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", cpuInfo[0]), 64)
 	}

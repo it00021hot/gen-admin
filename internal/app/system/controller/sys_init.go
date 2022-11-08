@@ -14,7 +14,7 @@ type sysDbInitController struct {
 	BaseController
 }
 
-// 系统是否已经初始化
+// IsInit 系统是否已经初始化
 func (c *sysDbInitController) IsInit(ctx context.Context, req *system.DbInitIsInitReq) (res *system.DbInitIsInitRes, err error) {
 	res = new(system.DbInitIsInitRes)
 	// autoInit=false则前端将不走自动初始化的流程
@@ -27,7 +27,7 @@ func (c *sysDbInitController) IsInit(ctx context.Context, req *system.DbInitIsIn
 	return
 }
 
-// 获取环境检测信息
+// GetEnvInfo 获取环境检测信息
 func (c *sysDbInitController) GetEnvInfo(ctx context.Context, req *system.DbInitGetEnvInfoReq) (res *system.DbInitGetEnvInfoRes, err error) {
 	sysInfo, err := host.Info()
 	if err != nil {
